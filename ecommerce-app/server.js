@@ -3,8 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const dbConn = require('./app/dbconfig/dbconfig');
-const userRoute = require("./app/route/user.route")
-const userLoginRoute = require("./app/route/userLogin.route")
+const userRoute = require("./app/route/user.route");
+const userLoginRoute = require("./app/route/userLogin.route");
+const productRoute = require("./app/route/product.route");
 
 app.use(bodyParser.json());
 app.use(
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 
 app.use('/', userRoute);
 app.use('/', userLoginRoute);
+app.use('/', productRoute);
 
 app.listen(3000, () => {
     console.log('Node app is listening on port 3000');
